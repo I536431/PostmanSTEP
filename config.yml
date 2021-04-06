@@ -1,0 +1,6 @@
+steps:
+	newmanExecute:
+		newmanCollection: 'apitest/*.postman_collection.json'
+		newmanEnvironment: 'apitest/*.postman_environment.json'
+		newmanInstallCommand: 'npm install newman newman-reporter-html newman-reporter-htmlextra --global--quiet'
+		newmanRunCommand: 'run ${config.newmanCollection} -k --environment ${config.newmanEnvironment} --reporters cli,htmlextra --reporter-htmlextra-export target/newman/TEST-${collectionDisplayName}.html’
